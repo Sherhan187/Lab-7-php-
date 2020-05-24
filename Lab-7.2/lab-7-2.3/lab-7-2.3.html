@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+		background-color: dimgray;
+			color: whitesmoke;
+	}
+	</style>
+	<title>task2.3</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+<body>
+<h2>Please write your favorite car </h2><br>
+	<p id="here" style="color: chartreuse"></p>
+	<input type="text" name="cars" id="cars" required>
+	<input type="button" id="b1" value="POST">
+	<script>
+		$(document).ready( function() {
+		    $('#b1').click(function() {
+		    	var cars = $("#cars").val();
+				$.post("cars.php", {cars : cars}, function(data, status){
+					$("#here").html(data);
+				});
+			});
+		});
+	</script>
+</body>
+</html>

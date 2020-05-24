@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PJ</title>
+</head>
+<body>
+	<p id="here">Here</p>
+	<input type="button" id="btn" value="POST"></body>
+	<script>
+	document.getElementById('btn').onclick = function(){
+	  var request = new XMLHttpRequest();
+	  request.open('POST','gg.php',true);
+	  request.addEventListener('readystatechange', function() {
+	    if ((request.readyState == 4) && (request.status == 200)) {
+	      var x = document.getElementById('content');
+	      var js_send = JSON.parse(request.responseText);
+	      x.innerHTML = js_send['Astana'];
+	    }
+	  });
+	request.send();
+	};
+    </script>
+</html>

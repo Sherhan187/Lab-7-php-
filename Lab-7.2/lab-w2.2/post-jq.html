@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PJ</title>
+	<style>
+		body{
+			background-color: dimgray;
+			color: whitesmoke;
+		}
+	</style>
+</head>
+<body>
+	<p id="here">Here</p>
+	<input type="button" id="btn" value="POST"></body>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>
+	$(document).ready( function() {
+	    $('#btn').click(function() {
+	        $.ajax({
+	            type: 'post',
+	            url: 'gg.php',
+	            success: function(result) {
+	            	var obj = JSON.parse(result);
+	                $('#here').text(obj.Astana);
+	            },
+	        });
+	    });
+	});
+    </script>
+</html>
